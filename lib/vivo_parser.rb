@@ -21,6 +21,52 @@ class VivoParser
     @version
   end
 
+  # @return [String] student level
+  def level
+    @book.worksheet(1)[3,3].titleize
+  end
+
+  # @return [Date] date of practical exam
+  def date
+    @book.worksheet(1)[6,3].to_date
+  end
+
+  def total_grade
+    @book.worksheet(1)[16,2].value
+  end
+
+  def theory_grade
+    @book.worksheet(1)[8,3]
+  end
+
+  def practice_grade
+    @book.worksheet(1)[11,3].value
+  end
+
+  def lesson_grade
+    @book.worksheet(1)[14,3].value
+  end
+
+  def draw_grade
+    @book.worksheet(1)[9,3].value
+  end
+
+  def coreography_grade
+    @book.worksheet(1)[10,3].value
+  end
+
+  def swasthya_grade
+    @book.worksheet(1)[12,3].value
+  end
+
+  def beginners_grade
+    @book.worksheet(1)[13,3].value
+  end
+
+  def disertation_grade
+    @book.worksheet(1)[15,3].value
+  end
+
   # @return [String] student name
   def student_name
     @book.worksheet(1)[0,3]

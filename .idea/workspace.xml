@@ -22,19 +22,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="vivo_parser.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="vivo_parser.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/vivo_parser.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="21" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.856">
+            <state line="24" column="27" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vivo_parser_spec.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="vivo_parser_spec.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/lib/vivo_parser_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="92" selection-start="2662" selection-end="2662" vertical-scroll-proportion="0.0">
+            <state line="80" column="35" selection-start="2296" selection-end="2296" vertical-scroll-proportion="1.2098765">
               <folding />
             </state>
           </provider>
@@ -58,8 +58,8 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/Guardfile" />
-        <option value="$PROJECT_DIR$/spec/lib/vivo_parser_spec.rb" />
         <option value="$PROJECT_DIR$/lib/vivo_parser.rb" />
+        <option value="$PROJECT_DIR$/spec/lib/vivo_parser_spec.rb" />
       </list>
     </option>
   </component>
@@ -485,7 +485,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-5" width="1382" height="781" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -495,7 +495,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.48425788" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5037481" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298351" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45727137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -613,16 +613,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/lib/vivo_parser_spec.rb">
+    <entry file="file://$PROJECT_DIR$/lib/vivo_parser.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="92" selection-start="2662" selection-end="2662" vertical-scroll-proportion="0.0">
+        <state line="24" column="27" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vivo_parser.rb">
+    <entry file="file://$PROJECT_DIR$/spec/lib/vivo_parser_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="21" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.856">
+        <state line="80" column="35" selection-start="2296" selection-end="2296" vertical-scroll-proportion="1.2098765">
           <folding />
         </state>
       </provider>

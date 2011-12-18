@@ -44,6 +44,42 @@ describe VivoParser do
       @parser = VivoParser.new(file_path)
     end
 
+    specify "#draw_grade" do
+      @parser.draw_grade.should == 94
+    end
+
+    specify "#coreography_grade" do
+      @parser.coreography_grade.should == 0
+    end
+
+    specify "#swasthya_grade" do
+      @parser.swasthya_grade.should == 69
+    end
+
+    specify "#beginners_grade" do
+      @parser.beginners_grade.should == 0
+    end
+
+    specify "#lesson_grade" do
+      @parser.lesson_grade.should == 69
+    end
+
+    specify "#practice_grade" do
+      @parser.practice_grade.should == 94
+    end
+
+    specify "#disertation_grade" do
+      @parser.disertation_grade.should == 0
+    end
+
+    specify "#theory_grade" do
+      @parser.theory_grade.should == 0
+    end
+
+    specify "#total_grade" do
+      @parser.total_grade.should be_within(0.009).of(54.33)
+    end
+
     specify "#version returns version of opened file" do
       @parser.version.should == 10
     end
@@ -54,6 +90,14 @@ describe VivoParser do
 
     specify "#students_teacher returns students teacher" do
       @parser.students_teacher.should == "Diego Ouje"
+    end
+
+    specify "#level" do
+      @parser.level.should == "Asistente"
+    end
+
+    specify "#date" do
+      @parser.date.should == Date.civil(2011,12,17)
     end
 
     specify "#evaluator returns evaluator name" do
@@ -77,7 +121,6 @@ describe VivoParser do
     end
 
     describe "swasthya_observations" do
-
       it "returns all observations of swásthya class" do
         @parser.swasthya_observations.should == SWASTHYA_OBS.map{|k,v|"#{k}\n#{v}"}.join("\n")
       end
