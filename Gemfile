@@ -7,8 +7,8 @@ gem 'therubyracer' # idem execjs
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
+gem 'mongoid'
+gem 'bson_ext'
 gem 'spreadsheet'
 
 # Gems used only for assets and not required
@@ -28,12 +28,16 @@ group :development, :test do
   gem 'spork', '> 0.9.0.pre'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'minitest' # for cucumber
+  gem 'mongoid-rspec'
+
+  gem 'machinist', '1.0.6'
+  gem 'machinist_mongo', '1.2.0', :require => 'machinist/mongoid'
   gem 'database_cleaner'
+
   gem 'cucumber-rails'
+  gem 'guard-cucumber'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'minitest' # for cucumber
 end
 
 group :test do
