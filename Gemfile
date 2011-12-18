@@ -10,6 +10,8 @@ gem 'therubyracer' # idem execjs
 gem 'mongoid'
 gem 'bson_ext'
 gem 'spreadsheet'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 # Gems used only for assets and not required
 # in production environments by default.
