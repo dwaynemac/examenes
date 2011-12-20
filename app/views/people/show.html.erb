@@ -1,0 +1,9 @@
+<h1><%= @person.name %></h1>
+
+<ul>
+  <%- @person.evaluations.order(:date).each do |evaluation| -%>
+      <li>
+        <%= evaluation.parser.total_grade %>
+      </li>
+  <%- end -%>
+</ul>

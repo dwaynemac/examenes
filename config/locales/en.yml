@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+  evaluation:
+    errors:
+      file_not_readable: "File is not readable"
+      max_evaluation_per_date_achieved: "Each person can only have 3 files to a exam date"
+      one_evaluation_per_evaluator: "Already loaded evaluation by this evaluator for this date"

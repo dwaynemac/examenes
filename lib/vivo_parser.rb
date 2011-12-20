@@ -11,6 +11,12 @@ class VivoParser
     end
   end
 
+  # Returns true/false whether examen_vivo is readable or not (password protected)
+  # @return [TrueClass]
+  def readable?
+    !@book.nil?
+  end
+
   # ExamenVivo version of the loaded file
   # @return [String] version
   def version

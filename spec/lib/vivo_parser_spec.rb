@@ -23,7 +23,7 @@ describe VivoParser do
         @parser = VivoParser.new(file_path)
       end
       it "returns nil" do
-        @parse.should be_nil
+        @parser.should_not be_readable
       end
     end
 
@@ -33,7 +33,7 @@ describe VivoParser do
         @parser = VivoParser.new(file_path)
       end
       it "opens successfully" do
-        @parser.should be_a(VivoParser)
+        @parser.should be_readable
       end
     end
   end

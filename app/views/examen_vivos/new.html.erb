@@ -1,0 +1,12 @@
+<%= semantic_form_for @evaluation,
+                     :url => examen_vivo_path,
+                     :method => :post do |f| %>
+
+    <ul id="error_messages">
+      <% @evaluation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <%= f.input :evaluation_file, :as => :file  %>
+    <%= f.submit :upload %>
+<%- end -%>

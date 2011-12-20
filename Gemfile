@@ -7,11 +7,13 @@ gem 'therubyracer' # idem execjs
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mongoid'
-gem 'bson_ext'
+gem 'sqlite3'
+
 gem 'spreadsheet'
 gem 'carrierwave'
-gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'formtastic'
+
+gem 'fog'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -30,10 +32,9 @@ group :development, :test do
   gem 'spork', '> 0.9.0.pre'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem 'mongoid-rspec'
 
+  gem 'faker'
   gem 'machinist', '1.0.6'
-  gem 'machinist_mongo', '1.2.0', :require => 'machinist/mongoid'
   gem 'database_cleaner'
 
   gem 'cucumber-rails'

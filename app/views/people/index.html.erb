@@ -1,0 +1,7 @@
+<table>
+  <%- @people.each do |person| -%>
+      <tr>
+        <td><%= link_to person.name, person %></td>
+      </tr>
+  <%- end -%>
+</table>

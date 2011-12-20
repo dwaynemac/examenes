@@ -1,4 +1,9 @@
 Examenes::Application.routes.draw do
+
+  resource :examen_vivo, :only => [:new, :create ]
+  resources :people
+
+  root :to => "examen_vivos#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
