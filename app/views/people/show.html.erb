@@ -2,8 +2,18 @@
 
 <ul>
   <%- @person.evaluations.order(:date).each do |evaluation| -%>
+      <li><h2><%= evaluation.date %></h2></li>
+      <li><h3><%= evaluation.evaluator.name %></h3></li>
       <li>
-        <%= evaluation.parser.total_grade %>
+        <%= t('evaluation.attributes.total_grade') %>:<%= evaluation.parser.total_grade %>
       </li>
+      <%- %W(draw coreography swasthya beginners disertation).each do |section| -%>
+          <li>
+            <b><%= t("evaluation.sections.#{section}") %>
+            <%= evaluation.parser.send("#{section}_grade") %></b>
+            <br>
+            <%= evaluation.parser.send("#{section}_observations").gsub(/\n/,"<br/>".html_safe).html_safe %>
+          </li>
+      <%- end -%>
   <%- end -%>
 </ul>

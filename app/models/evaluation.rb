@@ -19,14 +19,14 @@ class Evaluation < ActiveRecord::Base
   private
   def three_evaluations_per_date
     return if self.student.nil?
-    unless self.student.evaluations.where(:date => self.date).count <= 3
+    unless self.student.evaluations.where(:date => self.date).count < 3
       self.errors.add(:date, I18n.t('evaluation.errors.max_evaluation_per_date_achieved'))
     end
   end
 
   def one_evaluation_per_evaluator_per_date
     return if self.student.nil?
-    unless self.student.evaluations.where(:date => self.date, :evaluator_id => self.evaluator.id).count == 1
+    unless self.student.evaluations.where(:date => self.date, :evaluator_id => self.evaluator.id).count == 0
       self.errors.add(:evaluator, I18n.t('evaluation.errors.one_evaluation_per_evaluator'))
     end
   end
