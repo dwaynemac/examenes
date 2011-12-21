@@ -12,3 +12,6 @@ en:
       total_grade: "Total grade"
     sections:
       draw: "Draw"
+  date:
+    formats:
+      month: "%b %Y"

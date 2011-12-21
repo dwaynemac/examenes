@@ -12,6 +12,7 @@ gem 'sqlite3'
 gem 'spreadsheet'
 gem 'carrierwave'
 gem 'formtastic'
+gem 'draper'
 
 gem 'fog'
 

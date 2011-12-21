@@ -16,6 +16,10 @@ class Evaluation < ActiveRecord::Base
     VivoParser.new(self.evaluation_file.path)
   end
 
+  def self.for_date(filter_date)
+    self.where(:date => filter_date)
+  end
+
   private
   def three_evaluations_per_date
     return if self.student.nil?
