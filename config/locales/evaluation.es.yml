@@ -1,0 +1,26 @@
+# encoding: UTF-8
+es:
+  evaluation:
+    errors:
+      file_not_readable: "No se pudo leer el archivo. ¿Esta protegido?"
+      max_evaluation_per_date_achieved: "Cada persona sólo puede tener 3 archivos por fecha de evaluación"
+      one_evaluation_per_evaluator: "Ya se cargó la evaluación realizada por este evaluador para esta fecha."
+    attributes:
+      total_grade: "Nota total"
+    sections:
+      draw: "Sorteo"
+      coreography: "Coreografía"
+      swasthya: "SwáSthya"
+      beginners: "Iniciantes"
+      disertation: "Disertación"
+    angas:
+      opening: "Apertura"
+      mudra: "Mudra"
+      puja: "Pújá"
+      mantra: "Mantra"
+      pranayama: "Pránáyáma"
+      kriya: "Kriyá"
+      asana: "Ásana"
+      yoganidra: "Yôganidrá"
+      samyama: "Samyama"
+      general: "Generales"

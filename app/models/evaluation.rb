@@ -11,6 +11,10 @@ class Evaluation < ActiveRecord::Base
   validate :three_evaluations_per_date
   validate :one_evaluation_per_evaluator_per_date
 
+  SECTIONS = %W(draw coreography swasthya beginners disertation)
+
+  ANGAS = %W[opening mudra puja mantra pranayama kriya asana yoganidra samyama general]
+
   def parser
     return nil if self.evaluation_file.nil?
     VivoParser.new(self.evaluation_file.path)

@@ -1,0 +1,30 @@
+<%- if @evaluations.first.model.date == evaluation_date -%>
+    <table class="table table-striped">
+      <tr>
+        <td></td>
+        <%- @evaluations.each do |e| -%>
+          <th><%= e.evaluator_name %></td>
+        <%- end -%>
+      </tr>
+      <tr>
+        <th>
+          <%= t('evaluation.attributes.total_grade') %>
+        </th>
+        <% @evaluations.each do |e| %>
+          <td>
+            <%= e.total_grade %>
+          </td>
+        <%- end -%>
+      </tr>
+      <%- Evaluation::SECTIONS.each do |section| -%>
+        <tr>
+          <th><%= t("evaluation.sections.#{section}") %></th>
+          <%- @evaluations.each do |e| -%>
+            <td>
+              <%= e.parser.send("#{section}_grade") %>
+            </td>
+          <%- end -%>
+        </tr>
+      <%- end -%>
+    </table>
+<%- end -%>

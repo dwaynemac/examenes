@@ -4,49 +4,63 @@
 
   <h2><%= l(evaluation_date, :format => :month) %></h2>
 
-  <%- if @evaluations.first.model.date == evaluation_date -%>
-    <%- @evaluations.each do |evaluation| -%>
+  <ul class="nav nav-tabs">
+    <li><a href="#grades" data-toggle="tab"><%= t('grades') %></a></li>
+    <li class="dropdown" id="observations">
+      <a href="#observations" data-toggle="dropdown" class="dropdown-toggle"><%= t('observations') %><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <%- Evaluation::SECTIONS.each do |section| -%>
+          <li><a href="#<%= section %>" data-toggle="tab"><%= t("evaluation.sections.#{section}") %></a></li>
+        <%- end -%>
+      </ul>
+    </li>
+  </ul>
 
-      <table>
-        <tr>
-          <td></td>
+  <div class="tab-content">
+    <div class="tab-pane" id="grades">
+      <%= render 'grades', {evaluation_date: evaluation_date} %>
+    </div>
+    <%- if @evaluations.first.model.date == evaluation_date -%>
+      <%- Evaluation::SECTIONS.each do |section| -%>
+        <div id="<%= section %>" class="tab-pane">
+          <h3><%= t("evaluation.sections.#{section}") %></h3>
+
           <%- @evaluations.each do |e| -%>
-            <th><%= e.evaluator_name %></td>
-          <%- end -%>
-        </tr>
-        <tr>
-          <th>
-            <%= t('evaluation.attributes.total_grade') %>
-          </th>
-          <% @evaluations.each do |e| %>
-            <td>
-              <%= e.total_grade %>
-            </td>
-        <%- end -%>
-        </tr>
-        <%- %W(theory draw coreography practice swasthya beginners lesson disertation).each do |section| -%>
-          <tr>
-            <th><%= section %></th>
-            <%- @evaluations.each do |e| -%>
-              <td>
-                <%= e.parser.send("#{section}_grade") %>
-              </td>
-          <%- end -%>
-          </tr>
-        <%- end -%>
-      </table>
-    <%- end -%>
+            <h4><%= e.evaluator_name %></h4>
 
-    <%- %W(draw coreography swasthya beginners disertation).each do |section| -%>
-      <h3><%= section %></h3>
-
-      <%- @evaluations.each do |e| -%>
-        <h4><%= e.evaluator_name %></h4>
-        <p>
-          <%= e.parser.send("#{section}_observations").gsub(/\n/,"<br/>").html_safe %>
-        </p>
+            <div class="accordion" id="accordion-angas-<%= e.id %>">
+              <%- if section == 'swasthya' -%>
+                <%- Evaluation::ANGAS.each do |anga| -%>
+                  <div class="accordion-group">
+                    <div class="accordion-heading">
+                      <a href="#<%= anga+'-'+e.id.to_s %>" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-anga-<%= e.id %>">
+                        <%= t("evaluations.angas.#{anga}") %>
+                      </a>
+                    </div>
+                    <div id="<%= anga+'-'+e.id.to_s %>" class="accordion-body collapse">
+                      <div class="accordion-inner">
+                        <%= e.parser.swasthya_observations(anga: anga).gsub(/\n/,"<br/>").html_safe %>
+                      </div>
+                    </div>
+                  </div>
+                <%- end -%>
+              <%- else -%>
+                <p>
+                  <%= e.parser.send("#{section}_observations").gsub(/\n/,"<br/>").html_safe %>
+                </p>
+              <%- end -%>
+            </div>
+          <%- end -%>
+        </div>
       <%- end -%>
     <%- end -%>
-
-  <%- end -%>
+  </div>
 <%- end -%>
+
+<script>
+  $(function () {
+    $(".collapse").collapse();
+    $('.dropdown-toggle').dropdown();
+    $('#grades').tab('show');
+  })
+</script>

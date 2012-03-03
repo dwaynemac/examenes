@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111220234140) do
+ActiveRecord::Schema.define(:version => 20111221122544) do
 
   create_table "evaluations", :force => true do |t|
     t.float   "total_grade"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20111220234140) do
     t.integer "student_id"
     t.integer "evaluator_id"
     t.date    "date"
+    t.float   "theory_grade"
   end
 
   create_table "people", :force => true do |t|
