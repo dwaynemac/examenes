@@ -24,3 +24,8 @@ es:
       yoganidra: "Yôganidrá"
       samyama: "Samyama"
       general: "Generales"
+    results:
+      pass: "aprovado"
+      failed: "Desaprovado"
+      na: "n/a"
+  detail: "detalle"

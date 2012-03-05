@@ -13,7 +13,7 @@ class ExamenVivosController < ApplicationController
       # TODO check not to repeat evaluation
       @person.evaluations << @evaluation
       if @person.save
-        redirect_to @person
+        redirect_to @evaluation
       else
         render :action => "new"
       end

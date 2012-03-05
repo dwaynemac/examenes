@@ -1,66 +1,26 @@
 <h1><%= @person.name %></h1>
 
-<%- @evaluation_dates.each do |evaluation_date| -%>
-
-  <h2><%= l(evaluation_date, :format => :month) %></h2>
-
-  <ul class="nav nav-tabs">
-    <li><a href="#grades" data-toggle="tab"><%= t('grades') %></a></li>
-    <li class="dropdown" id="observations">
-      <a href="#observations" data-toggle="dropdown" class="dropdown-toggle"><%= t('observations') %><b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <%- Evaluation::SECTIONS.each do |section| -%>
-          <li><a href="#<%= section %>" data-toggle="tab"><%= t("evaluation.sections.#{section}") %></a></li>
-        <%- end -%>
-      </ul>
-    </li>
-  </ul>
-
-  <div class="tab-content">
-    <div class="tab-pane" id="grades">
-      <%= render 'grades', {evaluation_date: evaluation_date} %>
-    </div>
-    <%- if @evaluations.first.model.date == evaluation_date -%>
-      <%- Evaluation::SECTIONS.each do |section| -%>
-        <div id="<%= section %>" class="tab-pane">
-          <h3><%= t("evaluation.sections.#{section}") %></h3>
-
-          <%- @evaluations.each do |e| -%>
-            <h4><%= e.evaluator_name %></h4>
-
-            <div class="accordion" id="accordion-angas-<%= e.id %>">
-              <%- if section == 'swasthya' -%>
-                <%- Evaluation::ANGAS.each do |anga| -%>
-                  <div class="accordion-group">
-                    <div class="accordion-heading">
-                      <a href="#<%= anga+'-'+e.id.to_s %>" class="accordion-toggle" data-toggle="collapse" data-parent="accordion-anga-<%= e.id %>">
-                        <%= t("evaluations.angas.#{anga}") %>
-                      </a>
-                    </div>
-                    <div id="<%= anga+'-'+e.id.to_s %>" class="accordion-body collapse">
-                      <div class="accordion-inner">
-                        <%= e.parser.swasthya_observations(anga: anga).gsub(/\n/,"<br/>").html_safe %>
-                      </div>
-                    </div>
-                  </div>
-                <%- end -%>
-              <%- else -%>
-                <p>
-                  <%= e.parser.send("#{section}_observations").gsub(/\n/,"<br/>").html_safe %>
-                </p>
-              <%- end -%>
-            </div>
-          <%- end -%>
+<table class="table">
+  <tr>
+    <th>Fecha</th>
+    <th>Evaluador</th>
+    <th>Nota General</th>
+    <th>Resultado</th>
+    <th></th>
+  </tr>
+  <%- @evaluations.each do |evaluation| -%>
+    <%# render :partial => 'evaluation_DEPRECATED' %>
+    <tr>
+      <td><%= evaluation.date %></td>
+      <td><%= evaluation.evaluator_name %></td>
+      <td><%= evaluation.total_grade %></td>
+      <td><%= evaluation.result %></td>
+      <td>
+        <div class="btn-group">
+          <%= link_to t('detail'), evaluation, class: 'btn' %>
+          <%= link_to t('delete'), evaluation, method: :delete, confirm: t('confirm'), class: 'btn' %>
         </div>
-      <%- end -%>
-    <%- end -%>
-  </div>
-<%- end -%>
-
-<script>
-  $(function () {
-    $(".collapse").collapse();
-    $('.dropdown-toggle').dropdown();
-    $('#grades').tab('show');
-  })
-</script>
+      </td>
+    </tr>
+  <%- end -%>
+</table>

@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <tr>
+    <td></td>
+    <th><%= @evaluation.evaluator_name %></td>
+  </tr>
+  <tr>
+    <th>
+      <%= t('evaluation.attributes.total_grade') %>
+    </th>
+    <td>
+      <%= @evaluation.total_grade %>
+    </td>
+  </tr>
+  <%- Evaluation::SECTIONS.each do |section| -%>
+    <tr>
+      <th><%= t("evaluation.sections.#{section}") %></th>
+      <td>
+        <%= @evaluation.parser.send("#{section}_grade") %>
+      </td>
+    </tr>
+  <%- end -%>
+</table>

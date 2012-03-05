@@ -7,9 +7,6 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @evaluation_dates = @person.evaluation_dates
-
-    show_evaluations_from = params[:date].nil?? @evaluation_dates.first : params[:date]
-    @evaluations = EvaluationDecorator.decorate(@person.evaluations.for_date(show_evaluations_from))
+    @evaluations = EvaluationDecorator.decorate(@person.evaluations)
   end
 end
