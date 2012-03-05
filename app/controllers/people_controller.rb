@@ -1,11 +1,12 @@
 class PeopleController < ApplicationController
 
+  load_and_authorize_resource
+
   def index
-    @people = Person.order(:name).all
+    @people = @people.order(:name)
   end
 
   def show
-    @person = Person.find(params[:id])
     @evaluation_dates = @person.evaluation_dates
 
     show_evaluations_from = params[:date].nil?? @evaluation_dates.first : params[:date]

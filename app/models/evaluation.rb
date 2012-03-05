@@ -1,5 +1,9 @@
+##
+# Representa la evaluación de 1 evaluador a 1 evaluado.
+#
 class Evaluation < ActiveRecord::Base
 
+  # Es el archivo de la evaluación. El examen_vivo.xls
   mount_uploader :evaluation_file, EvaluationFileUploader
   validates_presence_of :evaluation_file
   validate :file_is_readable
@@ -12,17 +16,22 @@ class Evaluation < ActiveRecord::Base
   validate :three_evaluations_per_date
   validate :one_evaluation_per_evaluator_per_date
 
+  # secciones de una evaluacion
   SECTIONS = %W(draw coreography swasthya beginners disertation)
 
+  # partes evaluadas en la clase de swasthya
   ANGAS = %W[opening mudra puja mantra pranayama kriya asana yoganidra samyama general]
 
+  # Scopes to a date.
+  def self.for_date(filter_date)
+    self.where(:date => filter_date)
+  end
+
+  # Access to library that reads the evaluation_file
+  # @return [VivoParser]
   def parser
     return nil if self.evaluation_file.nil?
     VivoParser.new(self.evaluation_file.path)
-  end
-
-  def self.for_date(filter_date)
-    self.where(:date => filter_date)
   end
 
   private

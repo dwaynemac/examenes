@@ -3,7 +3,9 @@
   <p>
     Antes de subir el archivo del exámen observá que no esté protegido con contraseña.
   </p>
+  <%- if can?(:create, Evaluation) -%>
   <p>
     <%= link_to t('upload_examen_vivo')+"»", new_examen_vivo_path, class: 'btn btn-primary btn-large' %>
   </p>
+  <%- end -%>
 </div>

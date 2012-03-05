@@ -1,10 +1,12 @@
 class ExamenVivosController < ApplicationController
 
   def new
+    authorize! :create, Evaluation
     @evaluation = Evaluation.new
   end
 
   def create
+    authorize! :create, Evaluation
     @evaluation = Evaluation.new(params[:evaluation])
     if @evaluation.valid?
       @person = Person.find_or_create_by_name(@evaluation.parser.student_name)

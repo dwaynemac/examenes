@@ -1,0 +1,14 @@
+<%- if flash.alert -%>
+  <div class="alert alert-block">
+    <a class="close" data-dismiss="alert">×</a>
+    <h4 class="alert-heading">Warning!</h4>
+    <%= flash.alert %>
+  </div>
+<%- end -%>
+<%- if flash.notice -%>
+  <div class="alert alert-success">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= flash.notice %>
+  </div>
+<%- end -%>
+

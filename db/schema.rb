@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303230030) do
+ActiveRecord::Schema.define(:version => 20120305003058) do
 
   create_table "evaluations", :force => true do |t|
     t.float   "total_grade"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120303230030) do
     t.string   "username"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "role"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
