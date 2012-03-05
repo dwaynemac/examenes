@@ -200,3 +200,4 @@ es:
       <<: *errors
   grades: "Notas"
   observations: "Observaciones"
+  upload_examen_vivo: "Subir un exámen vivo"

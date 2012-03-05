@@ -1,6 +1,7 @@
 class Evaluation < ActiveRecord::Base
 
   mount_uploader :evaluation_file, EvaluationFileUploader
+  validates_presence_of :evaluation_file
   validate :file_is_readable
 
   before_validation :cache_values_in_db
